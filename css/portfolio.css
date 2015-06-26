@@ -1,0 +1,182 @@
+/*NEXT
+2. featured work blocks are aligned left but we want them aligned center for
+Google Nexus5... so make a simple page to test that*/
+
+
+/*Global*/
+* {
+	font: 700 100% "Oxygen", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+	font: 300 3em/1.1 "Oxygen", sans-serif;
+	margin-top: 0.1em;
+	margin-bottom: 0.1em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 1.382em;
+}
+
+p {
+	font-size: 0.75em;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+a,
+body {
+	color: #191003;
+	text-decoration: none;
+	margin: 0;
+}
+
+a:hover {
+	color: #c91700;
+}
+
+body {
+	background-color: #ffe7de;
+}
+
+.right-aligned {
+	text-align: right;
+	margin-right: 10px;
+}
+
+.main {
+	width: 100vw;
+	/*Somewhere in the Udacity course it said this was a common width to use
+	An alternative would be to generate a much larger image*/
+	max-width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/*Header*/
+.header {
+	/*max-width: 95vw;*/
+	margin-bottom: 1em;
+	margin-right: auto;
+	margin-left: auto;
+	justify-content: flex-end;
+}
+
+.headshot-image {
+	min-width: 140px;
+}
+
+.header-text-container {
+
+}
+
+.right-justified-gradient {
+	background-image: linear-gradient(
+		to left,
+		#e54918,
+		#ffe7df 95%
+	);
+}
+
+/* big image in the middle */
+.center-image-container {
+	width: 100%;
+	display: inline-block;
+}
+
+.center-image {
+	width: 100%;
+}
+
+/*Features*/
+.feature-heading {
+	justify-content: flex-start;
+}
+
+.feature-container {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.feature {
+	position: relative;
+	min-width: 250px;
+}
+
+.feature-image {
+	max-width: 80%;
+}
+
+.right-corner-gradient {
+	background-image: linear-gradient(
+		to bottom left,
+		#e54918,
+		#ffe7df 50%
+	);
+}
+
+.vertical-text {
+	position: absolute;
+	width: 100%;
+
+	/* Question: this 'top' setting seems to align the LH side of the rotated text
+	with the top of the image. The value was arrived at by trial and error.
+	Is it possible to achieve this without a magic-offset like this? */
+	top: -2.5em;
+
+	/*This value is works in conjuntion with the feature size*/
+	left: 82%;
+
+	/* adapted from http://stackoverflow.com/questions/18531698/css-rotate-image-and-align-top-left*/
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
+	-webkit-transform-origin: left bottom;
+	-moz-transform-origin: left bottom;
+	-ms-transform-origin: left bottom;
+	-o-transform-origin: left bottom;
+	transform-origin: left bottom;
+}
+
+
+/*When the width is too small to fit 2 of the features in a single row (width < 516px), center the features. */
+@media only screen and (max-width: 515px) {
+	.feature-heading {
+		justify-content: center;
+	}
+
+	.feature-container {
+		justify-content: center;
+	}
+}
+
+/*When the width is below 600px there's not much room, so to avoie things getting too small
+hide the headshot and have the title take up the whole header*/
+@media only screen and (max-width: 600px) {
+	h1 {
+		font-size: 2.5em
+	}
+
+	.main {
+		max-width: 100%;
+	}
+
+	.headshot {
+		display: none;
+	}
+
+	.header-text-container {
+		width: 100%;
+	}
+}
